@@ -87,14 +87,14 @@ function createPosts(cb) {
           postCreate("linux", users[2], 'mostly used for hacking',"false", callback);
         },
         function(callback) {
-          postCreate("javascript", users[2], 'Used in both fromtend and backend',"false", callback);
+          postCreate("javascript", users[2], 'Used in both fromtend and backend                                                                             ',"false", callback);
         }
         ],
         // optional callback
         cb);
 }
 
-
+                                                                           
 
 async.series([
     createUsers,

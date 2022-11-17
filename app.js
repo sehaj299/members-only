@@ -4,11 +4,18 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose=require('mongoose')
+var passport=require("passport")
+var Localstrategy=require('passport-local').Strategy
+const bcrypt=require('bcrypt')
+const user=require('./models/user')
+var session=require('express-session')
+
 require('dotenv').config();
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var catalogRouter=require('./routes/catalog')
 
 var app = express();
 
@@ -27,9 +34,33 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.get("/catalog/login",(req,res)=> res.render('login'))
+passport.use(
+  new Localstrategy((username,password,done)=>{
+    user.findOne({username:username},(err,user)=>{
+      if(err){
+        return done(err)
+      }
+      if(!user){
+        return done(null,false,{message:'incorrect username'})
+      }
+      if(password==user.password){
+        return done(null,user)}
+      elseif( password=user.password){
+        bcrypt.compare(password,user.password,(err,res)=>{
+          if(res){
+            return done(null,user)
+          }
 
+        })
+      }
+    })
+
+  })
+)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/catalog',catalogRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -46,5 +77,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+app.post("/login",passport.authenticate("local"))
 
 module.exports = app;
