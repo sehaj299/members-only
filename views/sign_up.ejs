@@ -2,34 +2,57 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
     <form action="" method="post">
-    <div class="formContainer">
-    <h1>Sign Up Form</h1>
-    <hr>
-    <label for="first_name"><b>first_name</b></label>
-    <input type="text" placeholder="Enter first_name" name="first_name" required>
-    <label for="last_name"><b>last_name</b></label>
-    <input type="text" placeholder="last_name" name="last_name"
-    required>
-    <label for="username"><b>username</b></label>
-    <input type="text" placeholder="username" name="username"
-    required>
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="password" name="password" required>
-    <label for="confirmpassword"><b>Password</b></label>
-    <input type="password" placeholder='rewritepassword' name="password" required>
-    <label for="passcode"><b>member passcode</b></label>
-    <input type="text" placeholder="enter passcode" name="passcode" >
-    <label for="admincode"><b>Admincode</b></label>
-    <input type="text" placeholder="enter passcode if admin" name="admincode" >
-    <div>
-    <button type="submit" class="signup">Sign Up</button>
-    </div>
-    </div>
+      <div class="formContainer">
+        <h1>Sign Up Form</h1>
+        <hr />
+        <div class="container">
+          <label for="first_name"><b>first_name</b></label>
+          <input
+            type="text"
+            placeholder="Enter first_name"
+            name="first_name"
+            required
+          />
+          <label for="last_name"><b>last_name</b></label>
+          <input
+            type="text"
+            placeholder="last_name"
+            name="last_name"
+            required
+          />
+          <label for="username"><b>username</b></label>
+          <input type="text" placeholder="username" name="username" required />
+          <label for="password"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="password"
+            name="password"
+            required
+          />
+          <label for="confirmpassword"><b>confirmPassword</b></label>
+          <input
+            type="password"
+            placeholder="rewritepassword"
+            name="confirmpassword"
+            required
+          />
+          <label for="passcode"><b>member passcode</b></label>
+          <input type="text" placeholder="enter passcode" name="passcode" />
+          <label for="admincode"><b>Admincode</b></label>
+          <input
+            type="text"
+            placeholder="enter passcode if admin"
+            name="admincode"
+          />
+          <div>
+            <button type="submit" class="signup">Sign Up</button>
+          </div>
+        </div>
+      </div>
     </form>
-    </body>
-    </html>
+  </body>
 </html>

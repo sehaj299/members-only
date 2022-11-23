@@ -19,8 +19,8 @@ var users = []
 var posts = []
 
 
-function userCreate(first_name, family_name, username, password,membership, cb) {
-  userdetail = {first_name:first_name , family_name: family_name,username:username, password:password, membership:membership  }
+function userCreate(first_name, last_name, username, password,membership, cb) {
+  userdetail = {first_name:first_name , last_name: last_name,username:username, password:password, membership:membership  }
   var user = new User(userdetail);
        
   user.save(function (err) {
@@ -54,20 +54,26 @@ function postCreate(title, author, text,edited, cb) {
   }  );
 }
 
-
+const bcrypt = require('bcrypt');
+const password1 = 'sehaj123'
+const hash1 = bcrypt.hashSync(password1, 10);
+const password2 = 'samir123'
+const hash2 = bcrypt.hashSync(password2, 10);
+const password3 = 'rahul123'
+const hash3 = bcrypt.hashSync(password3, 10);
 
 
 
 function createUsers(cb) {
     async.series([
         function(callback) {
-          userCreate('sehaj', 'chawla', 'chawla29', '123456','member', callback);
+          userCreate('sehaj', 'chawla', 'chawla29', hash1,'member', callback);
         },
         function(callback) {
-          userCreate('samir', 'dang', 'samir1', '23456','member', callback);
+          userCreate('samir', 'dang', 'samir1', hash2,'member', callback);
         },
         function(callback) {
-          userCreate('rahul', 'saghir', 'saghir3', '123456','member', callback);
+          userCreate('rahul', 'saghir', 'saghir3', hash3,'member', callback);
         }
         ],
         // optional callback

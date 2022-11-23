@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <div class="header">
+        <% if(currentUser){ %>
+            <li>Membership:<%= currentUser.membership %></li>
+        <%}else {%>
+            <a>Members_only</a>
+        <% }%>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <% if(currentUser){ %>
+                
+                <li><%= currentUser.username %></li>
+                <li><%= currentUser.membership %></li>
+                <li> <a href="/catalog/signup">logout</a></li>
+            <%}else {%>
+                <li><a href="/catalog/signup">signup</a></li>
+                <li><a href="/catalog/login">login</a></li>
+           <% }%>
+            
+        </ul>
+        
+    </div>
+    
+</head>

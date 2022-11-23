@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%- include('header') -%>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/navstyle.css' />
   </head>
   <body>
-    <form>
-    <div class="formContainer">
-    <h1>Sign Up Form</h1>
+    <h2>Posts:</h2>
     <hr>
-    <label for="first_name"><b>first_name</b></label>
-    <input type="text" placeholder="Enter first_name" name="first_name" required>
-    <label for="last_name"><b>last_name</b></label>
-    <input type="text" placeholder="last_name" name="last_name"
-    required>
-    <label for="username"><b>username</b></label>
-    <input type="text" placeholder="username" name="username"
-    required>
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
-    <div>
-    <button type="submit" class="signup">Sign Up</button>
-    </div>
-    </div>
-    </form>
-    </body>
-    </html>
+    <!-- <% for(var i=0; i<post.length ; i++){ %>
+      <h5><%= post.title %></h5>
+      <hr>
+      <p><%= post.text %></p>
+      <hr>
+      <% if(<%= post.edited %>==="true"){ %>
+        <p>edited</p>
+      <%}%>
+    <%}%>  
+      <hr>
+      <% if(currentUser){ %>
+        <% if(currentUser.membership==='member' || currentUser.membership==='admin'  ){ %>
+          <p>By currentUser.author</p>
+        <%}else {%>
+          <p>Anonymous</p>
+        <%}%>
+        
+      <%}else {%>
+        <p>Anonymous</p>
+      <%}%> -->
+
+
+
+
+
+    
+
+ 
+    
+  </body>
 </html>
