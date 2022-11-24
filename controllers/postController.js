@@ -3,11 +3,11 @@ var { check, validationResult } = require("express-validator");
 
 exports.index = (req, res) => {
   Post.find()
-  .populate('author')
-  .then((data) => {
-    console.log(data);
-    res.render("index", { post: data,title:"homepage"});
-  });
+    .populate("author")
+    .then((data) => {
+      console.log(data);
+      res.render("index", { post: data, title: "homepage" });
+    });
 };
 exports.create_post = (req, res) => {
   res.render("createpost");
@@ -41,7 +41,7 @@ exports.create_post_submit = [
     const post = new Post({
       title: req.body.title,
 
-      author:req.user ,
+      author: req.user,
 
       text: req.body.text,
 
@@ -56,16 +56,13 @@ exports.create_post_submit = [
     });
   },
 ];
- exports.post_delete_get=(req,res)=>{
-  const id=req.params.id
-  Post.findById(id)
-  .then((data)=>{
-    res.render('deletePost',{ post:data})
-  })
-
-
- }
- exports.post_delete_post=(req,res,next)=>{
+exports.post_delete_get = (req, res) => {
+  const id = req.params.id;
+  Post.findById(id).then((data) => {
+    res.render("deletePost", { post: data });
+  });
+};
+exports.post_delete_post = (req, res, next) => {
   Post.findByIdAndRemove(req.params.id, function deletepost(err) {
     if (err) {
       return next(err);
@@ -74,28 +71,27 @@ exports.create_post_submit = [
   });
 };
 
-exports.post_update_get=(req,res)=>{
-  const id =req.params.id
-  Post.findById(id)
-  .then((data)=>{
-    res.render('updatePost',{ post:data})
-  })
-}
+exports.post_update_get = (req, res) => {
+  const id = req.params.id;
+  Post.findById(id).then((data) => {
+    res.render("updatePost", { post: data });
+  });
+};
 
-exports.post_update_post=[
+exports.post_update_post = [
   (req, res, next) => {
     console.log(req.body);
-  
+
     const newpost = new Post({
       title: req.body.title,
 
-      author:req.user ,
+      author: req.user,
 
       text: req.body.text,
 
       edited: "true",
 
-      _id:req.params.id
+      _id: req.params.id,
     });
     Post.findByIdAndUpdate(req.params.id, newpost, {}, function (err) {
       if (err) {
@@ -105,4 +101,3 @@ exports.post_update_post=[
     });
   },
 ];
-

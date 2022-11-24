@@ -6,13 +6,22 @@
     <link rel="stylesheet" href="/stylesheets/navstyle.css" />
   </head>
   <body>
-    <h1>Posts:</h1>
+    <h1>Rules to access</h1>
+    <p>if Anonymous user come to my website he will only able to see Posts without author name</p>
+    <p>if he or she signup and have a membership or admin then user will able to see post with author name and can create new post if user doesnt have member then user can still create post but cant see other's post author name</p>
+    <p>User can only update his/her post not other's</p>
+    <p>Admin user have special power and can delete any post</p>
+    <p>For reference adminpasscode="sehajAdmin" or mebershipPasscode="sehaj123" user have to enter either of passcode while signup in order to have access to delete ,update and author's name  </p>
+    <hr>
+    <h2>Posts:</h2>
+    
+    
     <% if(currentUser){ %> <% if(currentUser.membership==='member' ||
     currentUser.membership==='admin' ){ %>
       <button><h3><a href="/catalog/createpost">Create post</a></h3></button>
     
     <%}%><%}%>
-    <hr>
+  
     <% for(var i=0; i<post.length ; i++){ %>
       <div class="displayPost">
         <h4 class="post-title"><%= post[i].title %></h4>

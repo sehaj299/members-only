@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('header') -%>
     <link rel="stylesheet" href="/stylesheets/navstyle.css" />
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Document</title>
-</head>
-<body>
-<form action="" method="post" >
-    <div class="formContainer"></div>
-    <label for="Author"><b>Author</b></label>
-    <input type="text" placeholder="author" name="author" value="<%= currentUser.username %>">
-    <label for="title"><b>Title</b></label>
-    <input type="text" placeholder="title" name="title" value="<%= post.title %>"required>
- 
-    <textarea name="text" rows="5" cols="40" textObject.value="<%= post.text %>">Describe your post...</textarea>
-    <div>
+  </head>
+  <body>
+    <form action="" method="post">
+      <div class="formContainer"></div>
+      <label for="Author"><b>Author</b></label>
+      <input
+        type="text"
+        placeholder="author"
+        name="author"
+        value="<%= currentUser.username %>"
+      />
+      <label for="title"><b>Title</b></label>
+      <input
+        type="text"
+        placeholder="title"
+        name="title"
+        value="<%= post.title %>"
+        required
+      />
+
+      <textarea
+        name="text"
+        rows="5"
+        cols="40"
+        textObject.value="<%= post.text %>"
+      >
+Describe your post...</textarea
+      >
+      <div>
         <button type="submit" class="login">Submit</button>
-    </div>
-    
-</form>
-</body>
+      </div>
+    </form>
+  </body>
 </html>
