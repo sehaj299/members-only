@@ -68,3 +68,18 @@ exports.sign_up_post=[
 
 
 ]
+exports.logout= (req, res) => {
+
+  req.logout(function (err) {
+
+    if (err) {
+
+      return next(err);
+
+    }
+
+    res.redirect("/catalog");
+
+  });
+
+}

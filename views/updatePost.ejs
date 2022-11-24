@@ -15,9 +15,9 @@
     <label for="Author"><b>Author</b></label>
     <input type="text" placeholder="author" name="author" value="<%= currentUser.username %>">
     <label for="title"><b>Title</b></label>
-    <input type="text" placeholder="title" name="title" required>
+    <input type="text" placeholder="title" name="title" value="<%= post.title %>"required>
  
-    <textarea name="text" rows="5" cols="40">Describe your post...</textarea>
+    <textarea name="text" rows="5" cols="40" textObject.value="<%= post.text %>">Describe your post...</textarea>
     <div>
         <button type="submit" class="login">Submit</button>
     </div>

@@ -6,7 +6,7 @@ exports.index = (req, res) => {
   .populate('author')
   .then((data) => {
     console.log(data);
-    res.render("index", { post: data, title: "homepage" });
+    res.render("index", { post: data,title:"homepage"});
   });
 };
 exports.create_post = (req, res) => {
@@ -56,3 +56,53 @@ exports.create_post_submit = [
     });
   },
 ];
+ exports.post_delete_get=(req,res)=>{
+  const id=req.params.id
+  Post.findById(id)
+  .then((data)=>{
+    res.render('deletePost',{ post:data})
+  })
+
+
+ }
+ exports.post_delete_post=(req,res,next)=>{
+  Post.findByIdAndRemove(req.params.id, function deletepost(err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/catalog");
+  });
+};
+
+exports.post_update_get=(req,res)=>{
+  const id =req.params.id
+  Post.findById(id)
+  .then((data)=>{
+    res.render('updatePost',{ post:data})
+  })
+}
+
+exports.post_update_post=[
+  (req, res, next) => {
+    console.log(req.body);
+  
+    const newpost = new Post({
+      title: req.body.title,
+
+      author:req.user ,
+
+      text: req.body.text,
+
+      edited: "true",
+
+      _id:req.params.id
+    });
+    Post.findByIdAndUpdate(req.params.id, newpost, {}, function (err) {
+      if (err) {
+        return next(err);
+      }
+      res.redirect("/catalog");
+    });
+  },
+];
+

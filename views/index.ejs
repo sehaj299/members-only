@@ -15,15 +15,15 @@
     <hr>
     <% for(var i=0; i<post.length ; i++){ %>
       <div class="displayPost">
-        <h5><%= post[i].title %></h5>
+        <h4 class="post-title"><%= post[i].title %></h4>
 
-        <hr />
+      
 
         <p><%= post[i].text %></p>
 
         <% if( post[i].edited==="true" ){ %>
 
-        <p>edited</p>
+        <p class="edited">edited</p>
 
         <%}%>
 
@@ -32,7 +32,7 @@
         <% if(currentUser){ %> <% if(currentUser.membership==='member' ||
         currentUser.membership==='admin' ){ %>
 
-        <p>By <%= post[i].author.username %></p>
+        <p class="username">By <%= post[i].author.username %></p>
 
         <%}else {%>
 
@@ -40,11 +40,11 @@
 
         <%}%> <% if(currentUser.membership==='admin' ){ %>
 
-        <p><a href="post.url+'/delete'">Delete Post</a></p>
+          <button><a href="<%= post[i].url %>/delete">delete</a></button>
 
-        <%}%> <% if(currentUser.id===post[i].author.id){%>
-
-        <p><a href="post.url+'/update'">Edit post</a></p>
+          <%}%> <% if(currentUser.id===post[i].author.id){%>
+  
+            <button><a href="<%= post[i].url %>/update">update</a></button>
 
         <% }%> <%}else {%>
 

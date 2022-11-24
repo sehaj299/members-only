@@ -279,4 +279,27 @@ select {
 
 .displayPost{
   border: 2px solid red;
+  margin-top: 40px;
+  padding: 50px;
+  padding-top: 20px;
+  background-color: antiquewhite;
+}
+.edited{
+  font-size:18px;
+  padding-left: 140px;
+}
+.post-title{
+  margin-bottom:30px;
+  font-size:30px;
+}
+button{
+  margin-top:30px;
+  font-size: 20px;
+  text-justify: none;
+}
+a:link { text-decoration: none; }
+
+.username{
+  
+  padding-left: 140px;
 }
