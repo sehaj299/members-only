@@ -7,4 +7,6 @@ var router = express.Router();
 router.get("/", post_Controller.index);
 router.get("/signup", user_controller.sign_up_get);
 router.post("/signup", user_controller.sign_up_post);
+router.get("/createpost", post_Controller.create_post);
+router.post("/createpost", post_Controller.create_post_submit);
 module.exports = router;

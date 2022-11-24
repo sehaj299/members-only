@@ -277,4 +277,6 @@ select {
   border: none;
 }
 
- 
+.displayPost{
+  border: 2px solid red;
+}

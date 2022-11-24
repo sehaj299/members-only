@@ -79,7 +79,7 @@ app.use(function(req, res, next) {
 app.post(
   "/catalog/login",
   passport.authenticate("local"),(req,res)=>{
-    res.send("login sucuess")
+    res.render("index")
   }
 );
 

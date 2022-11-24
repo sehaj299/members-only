@@ -10,12 +10,14 @@
 <body>
 <form action="" method="post" >
     <div class="formContainer"></div>
-    <label for="username"><b>username</b></label>
-    <input type="text" placeholder="username" name="username">
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+    <label for="Author"><b>Author</b></label>
+    <input type="text" placeholder="author" name="author" value="<%= currentUser.username %>">
+    <label for="title"><b>Title</b></label>
+    <input type="text" placeholder="title" name="title" required>
+ 
+    <textarea name="text" rows="5" cols="40">Describe your post...</textarea>
     <div>
-        <button type="submit" class="login">Sign Up</button>
+        <button type="submit" class="login">Submit</button>
     </div>
     
 </form>

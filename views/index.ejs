@@ -3,39 +3,57 @@
   <head>
     <%- include('header') -%>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/navstyle.css' />
+    <link rel="stylesheet" href="/stylesheets/navstyle.css" />
   </head>
   <body>
-    <h2>Posts:</h2>
-    <hr>
-    <!-- <% for(var i=0; i<post.length ; i++){ %>
-      <h5><%= post.title %></h5>
-      <hr>
-      <p><%= post.text %></p>
-      <hr>
-      <% if(<%= post.edited %>==="true"){ %>
-        <p>edited</p>
-      <%}%>
-    <%}%>  
-      <hr>
-      <% if(currentUser){ %>
-        <% if(currentUser.membership==='member' || currentUser.membership==='admin'  ){ %>
-          <p>By currentUser.author</p>
-        <%}else {%>
-          <p>Anonymous</p>
-        <%}%>
-        
-      <%}else {%>
-        <p>Anonymous</p>
-      <%}%> -->
-
-
-
-
-
+    <h1>Posts:</h1>
+    <% if(currentUser){ %> <% if(currentUser.membership==='member' ||
+    currentUser.membership==='admin' ){ %>
+      <button><h3><a href="/catalog/createpost">Create post</a></h3></button>
     
+    <%}%><%}%>
+    <hr>
+    <% for(var i=0; i<post.length ; i++){ %>
+      <div class="displayPost">
+        <h5><%= post[i].title %></h5>
 
- 
+        <hr />
+
+        <p><%= post[i].text %></p>
+
+        <% if( post[i].edited==="true" ){ %>
+
+        <p>edited</p>
+
+        <%}%>
+
+        <hr />
+
+        <% if(currentUser){ %> <% if(currentUser.membership==='member' ||
+        currentUser.membership==='admin' ){ %>
+
+        <p>By <%= post[i].author.username %></p>
+
+        <%}else {%>
+
+        <p>Anonymous</p>
+
+        <%}%> <% if(currentUser.membership==='admin' ){ %>
+
+        <p><a href="post.url+'/delete'">Delete Post</a></p>
+
+        <%}%> <% if(currentUser.id===post[i].author.id){%>
+
+        <p><a href="post.url+'/update'">Edit post</a></p>
+
+        <% }%> <%}else {%>
+
+        <p>Anonymous</p>
+
+        <%}%>
+      </div>
+
+      <%}%>
     
   </body>
 </html>
